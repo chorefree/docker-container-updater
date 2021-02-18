@@ -1,0 +1,1 @@
+ALLOWED_BRANCH_NAMES = ["test", "master"]
