@@ -1,1 +1,1 @@
-sh run-bot.sh
+sh stop-bot.sh && sh run-bot.sh

@@ -1,5 +1,4 @@
 aws ecr get-login-password \
-    --profile=personal \
     --region eu-west-1 \
 | docker login \
     --username AWS \
