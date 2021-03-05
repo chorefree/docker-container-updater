@@ -3,6 +3,7 @@ import subprocess
 import os
 import uvicorn
 
+import settings
 from constants import ALLOWED_CONTAINER_NAMES
 
 app = FastAPI()
@@ -31,6 +32,7 @@ async def update_branch(container_name: str):
         return {"success": False, "errors": [{"error": "Container name not allowed!"}]}
 
     os.environ["CONTAINER_NAME"] = container_name
+    os.environ["ECR_REPO"] = container_name.replace("_", "-")
     subprocess.call(["sh", dir_path + "/release-container.sh"])
 
     return {"success": True}
