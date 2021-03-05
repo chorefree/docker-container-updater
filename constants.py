@@ -1,4 +1,5 @@
-ALLOWED_BRANCH_NAMES = [
-  {"branch": "test", "port": "32777" },
-  {"branch": "pro", "port": "32779" }
+ALLOWED_CONTAINER_NAMES = [
+    "gateway_development",
+    "gateway_test",
+    "gateway_master",
 ]
