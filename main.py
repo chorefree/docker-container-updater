@@ -14,9 +14,11 @@ async def root():
 
 @app.post("/update/{branch_name}")
 async def update_branch(branch_name: str):
-  if branch_name not in ALLOWED_BRANCH_NAMES:
+  if branch_name not in [b["branch"] for b in ALLOWED_BRANCH_NAMES]:
       return {"success": False, "errors": [{"error": "Branch name not allowed!"}]}
 
+	
+  os.environ["PORT"] = [b["port"] for b in ALLOWED_BRANCH_NAMES if b["branch"] == branch_name][0]
   os.environ["BRANCH_NAME"] = branch_name
   print(dir_path)
   subprocess.call(["sh", dir_path + "/release-bot.sh"])
