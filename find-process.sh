@@ -1,1 +1,1 @@
-ps ax | grep uvicorn
+netstat -ltnp | grep -w '5000'

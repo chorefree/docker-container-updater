@@ -16,7 +16,7 @@ async def root():
 
 
 @app.post("/restart/{container_name}")
-async def update_branch(container_name: str):
+async def restart_container(container_name: str):
     if container_name not in ALLOWED_CONTAINER_NAMES:
         return {"success": False, "errors": [{"error": "Container name not allowed!"}]}
 
@@ -27,7 +27,7 @@ async def update_branch(container_name: str):
 
 
 @app.post("/update/{container_name}")
-async def update_branch(container_name: str):
+async def update_container(container_name: str):
     if container_name not in ALLOWED_CONTAINER_NAMES:
         return {"success": False, "errors": [{"error": "Container name not allowed!"}]}
 
